@@ -1,24 +1,32 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import Home from './Home';
+import Navbar from './Navbar';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Create from './Create';
 
 function App() {
+  // on ecrit la logique du js a cet emplacement
+  // const title = "Welcome my first variable";
+  // const user = { name: "Demanou", age:10}
+  // var URL = "https://google.com"
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <div className="contenu">
+          <Switch>
+            <Route exact path={'/'}>
+              <Home />
+            </Route>
+            <Route exact path={'/create'}>
+              <Create />
+            </Route>
+          </Switch>
+        </div>      
+      </div>
+    </Router>
   );
 }
 
