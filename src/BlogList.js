@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 // ici on recupère la props quon a passé dans le composant enfant
 const BlogList = (props) => {
@@ -23,11 +24,11 @@ const BlogList = (props) => {
     return ( 
         <div className="bloglist">
             <h2>{title}</h2>
-            <button onClick={()=> setCount(count +1)}>click {count}</button>
+            {/* <button onClick={()=> setCount(count +1)}>click {count}</button> */}
         {
             blogs.map((blog) => (
                     <div className="blog" key = {blog.id}>
-                    <a href="#" className="blog-titre">{blog.title}</a>
+                    <Link to={ `/blogs/${blog.id}` } className="blog-titre">{blog.title}</Link>
                     <small className="blog-publication-date">Publié le {blog.date}</small>
                     <p className="blog-author">Publié par {blog.author}</p>
                     {/* <button onClick= { () => handleDelete(blog.id) }>Delete</button> */}

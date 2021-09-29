@@ -4,6 +4,8 @@ import Home from './Home';
 import Navbar from './Navbar';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Create from './Create';
+import BlogDetail from './BlogDetail';
+import NotFound from './NotFound';
 
 function App() {
   // on ecrit la logique du js a cet emplacement
@@ -20,8 +22,17 @@ function App() {
             <Route exact path={'/'}>
               <Home />
             </Route>
+
             <Route exact path={'/create'}>
               <Create />
+            </Route>
+
+            <Route exact path={'/blogs/:id'}>
+              <BlogDetail />
+            </Route>
+
+            <Route path={'*'}>
+              <NotFound />
             </Route>
           </Switch>
         </div>      

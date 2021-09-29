@@ -7,7 +7,7 @@ import useFetch from "./useFetch";
 const Home = () => {
 
     // le bloc devient reusable a chaque fois on use seulement la ligne ci en dessous pour faire un fetchAll
-    const {data: blogs, isLoading, error} = useFetch('http://localhost:8000/blogs');
+    const {data: blogs, isLoading, error} = useFetch('http://localhost:8000/blogs?_sort=id&_order=desc');
 
     return ( 
         <div className="home">
