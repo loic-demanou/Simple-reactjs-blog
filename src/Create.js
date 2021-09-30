@@ -2,6 +2,11 @@ import axios from "axios";
 import { useState } from "react";
 import { useHistory } from "react-router";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+toast.configure()
+
 const Create = () => {
 
     const [title, setTitle] = useState('');
@@ -11,6 +16,7 @@ const Create = () => {
     const history = useHistory();
 
     let [isLoading, setIsLoading] = useState(false)
+    // const created = toast.success("Wow so easy!");
 
     const submitForm =(e) =>{
         e.preventDefault();
@@ -22,11 +28,13 @@ const Create = () => {
         axios.post('http://localhost:8000/blogs', blog)
         .then((result) => {
             console.log('ajouté avec sucess');
+            toast.success("Posté avec success! 🙃");
+
             console.log(result);
             setIsLoading(false)
-            setTitle('');
-            setBody('');
-            setAuthor('')
+            // setTitle('');
+            // setBody('');
+            // setAuthor('')
             history.push('/');
         })
         console.log(blog);
@@ -34,6 +42,7 @@ const Create = () => {
 
     return ( 
         <div className="create">
+            {/* {success && <div className="flash">{created}</div>} */}
             <h2>Ajouter un nouvel article</h2>
             <form onSubmit={submitForm}>
                 <div className="form-group">

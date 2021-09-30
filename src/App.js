@@ -6,6 +6,11 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Create from './Create';
 import BlogDetail from './BlogDetail';
 import NotFound from './NotFound';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+toast.configure()
+
 
 function App() {
   // on ecrit la logique du js a cet emplacement

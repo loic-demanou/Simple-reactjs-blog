@@ -2,7 +2,10 @@ import { useHistory, useParams } from "react-router";
 import useFetch from "./useFetch";
 import loader from './Fidget-spinner.gif'
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure()
 
 const BlogDetail = () => {
     
@@ -17,6 +20,8 @@ const BlogDetail = () => {
         .then((result)=>{
             console.log("deleted sucessfully")
             history.push('/');
+            toast.error('deleted successfully 😑')
+
         })
     }
 
